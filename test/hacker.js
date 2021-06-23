@@ -25,6 +25,5 @@ contract("Hacker", function ([_owner, _hacker]) {
     // Check target's balance
     balance = await web3.eth.getBalance(targetContract.address);
     expect(balance).to.be.bignumber.greaterThan(new BN(0));
-    return assert.isTrue(true);
   });
 });
